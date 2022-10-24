@@ -1,9 +1,9 @@
 import ArticlesList from "../features/articles/articlesList";
 
-const Covid19 = () => {
+const Search = ({ search }) => {
   return (
     <div style={styles.container}>
-      <ArticlesList temp={"everything?q=covid19"}/>
+      <ArticlesList temp={`everything?q=${search}`}/>
     </div>
   );
 };
@@ -16,4 +16,4 @@ const styles = {
   },
 };
 
-export default Covid19;
+export default Search;

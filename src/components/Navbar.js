@@ -3,7 +3,7 @@ import { useNav } from "../hooks/Navbar.hook";
 import { getCategories } from "../utils/datas/getCategories";
 import SearchBar from "./SearchBar";
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
   const categories = getCategories();
   const { str, handleStr } = useNav();
 
@@ -24,7 +24,7 @@ const Navbar = () => {
       </nav>
       <div style={styles.news}>{str} News</div>
       <div style={styles.search}>
-        <SearchBar />
+        <SearchBar onSearch={onSearch}/>
       </div>
     </div>
   );
