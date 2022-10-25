@@ -1,8 +1,8 @@
-import NewsContainer from "../../components/NewsContainer";
-import { useArticleList } from "../../hooks/articleList.hook";
+import NewsContainer from "../components/NewsContainer";
+import { useNewsList } from "../hooks/NewsList.hook";
 
-const ArticlesList = ({ temp }) => {
-  const { articles, error, loading } = useArticleList({ temp });
+const NewsList = ({ temp }) => {
+  const { news, error, loading } = useNewsList({ temp });
 
   if (loading) {
     return <div style={{ fontSize: "30px" }}>A moment please...</div>;
@@ -16,7 +16,7 @@ const ArticlesList = ({ temp }) => {
   }
   return (
     <div style={styles.container}>
-      {articles.map((data, i) => (
+      {news.map((data, i) => (
         <NewsContainer data={data} key={i} />
       ))}
     </div>
@@ -31,4 +31,4 @@ const styles = {
   },
 };
 
-export default ArticlesList;
+export default NewsList;

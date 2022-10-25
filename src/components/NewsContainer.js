@@ -1,7 +1,14 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useDispatch, useSelector } from "react-redux";
+import { saveNews, deleteNews } from "../features/savedNews/savedNewsSlice";
 
 const NewsContainer = ({ data }) => {
+  const { saved } = useSelector((state) => state.saved);
+  const dispatch = useDispatch();
+
+  const isSaved = saved.find((news) => news.url === data.url);
+
   return (
     <Card style={styles.card}>
       <Card.Img variant="top" src={data.urlToImage} style={styles.img} />
@@ -21,8 +28,16 @@ const NewsContainer = ({ data }) => {
           >
             News Page
           </Button>
-          <Button variant="outline-success" style={styles.btn}>
-            Save
+          <Button
+            variant={isSaved ? "success" : "outline-success"}
+            style={styles.btn}
+            onClick={() => {
+              isSaved
+                ? dispatch(deleteNews(data.url))
+                : dispatch(saveNews(data));
+            }}
+          >
+            {isSaved ? "Saved" : "Save"}
           </Button>
         </div>
       </Card.Body>
