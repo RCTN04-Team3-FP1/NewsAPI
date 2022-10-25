@@ -10,7 +10,7 @@ const initialState = {
 export const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",
   async (temp) => {
-    let url = `https://newsapi.org/v2/${temp}&apiKey=9e5f9785232c458cbd9016f5816d05a8`;
+    let url = `https://newsapi.org/v2/${temp}&apiKey=d1aa61fe9ea74853b0a07e24c6e66e27`;
     const response = await axios.get(url);
     return response.data.articles;
   }

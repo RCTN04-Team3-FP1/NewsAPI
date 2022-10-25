@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ onSearch }) => {
   const [text, setText] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div style={styles.searchItem}>
@@ -12,22 +13,20 @@ const SearchBar = ({ onSearch }) => {
         style={styles.form}
         placeholder="Search ..."
         onChange={(e) => setText(e.target.value)}
+        value={text}
       />
 
       <Button
-      style={styles.button}
+        style={styles.button}
         variant="secondary"
         type="submit"
         onClick={() => {
           onSearch(text);
+          navigate(`/search/${text}`);
+          setText("");
         }}
       >
-        <Link
-          to={`/${text}`}
-          style={{textDecoration: "none", color: "white"}}
-        >
-          Search
-        </Link>
+        Search
       </Button>
     </div>
   );

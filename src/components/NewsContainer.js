@@ -21,7 +21,7 @@ const NewsContainer = ({ data }) => {
           >
             News Page
           </Button>
-          <Button variant="success" style={styles.btn}>
+          <Button variant="outline-success" style={styles.btn}>
             Save
           </Button>
         </div>

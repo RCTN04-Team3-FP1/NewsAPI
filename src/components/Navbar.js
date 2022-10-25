@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 const Navbar = ({ onSearch }) => {
   const categories = getCategories();
-  const { str, handleStr } = useNav();
+  const { str } = useNav();
 
   return (
     <div style={styles.container}>
@@ -16,7 +16,6 @@ const Navbar = ({ onSearch }) => {
             style={styles.navItem}
             to={`${category.route}`}
             className="navItem"
-            onClick={handleStr}
           >
             {category.name}
           </Link>
