@@ -53,7 +53,7 @@ const styles = {
     flex: 1,
     fontSize: 35,
     fontWeight: "bold",
-    fontFamily: "'Domine', serif",
+    fontFamily: "'Poppins', sans-serif",
   },
   search: {
     flex: 1,

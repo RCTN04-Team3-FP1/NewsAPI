@@ -18,19 +18,18 @@ const NewsContainer = ({ data }) => {
           <Card.Title style={styles.title}>{data.title}</Card.Title>
           <Card.Text style={styles.desc}>{data.description}</Card.Text>
         </div>
-        <div>
-          <Button
-            variant="dark"
-            style={styles.btn}
+        <div style={styles.btns}>
+          <button
+            style={styles.btnDetail}
             onClick={() =>
               window.open(`${data.url}`, "_blank", "noopener,noreferrer")
             }
           >
             News Page
-          </Button>
+          </button>
           <Button
-            variant={isSaved ? "success" : "outline-success"}
-            style={styles.btn}
+            variant={isSaved ? "secondary" : "outline-secondary"}
+            style={styles.btnSave}
             onClick={() => {
               isSaved
                 ? dispatch(deleteNews(data.url))
@@ -52,8 +51,8 @@ const styles = {
     margin: "1%",
     textAlign: "left",
     borderRadius: 20,
-    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-    fontFamily: "'Merriweather', serif",
+    boxShadow: "rgba(0, 0, 0, 0.3) 0px 5px 15px",
+    fontFamily: "'Poppins', sans-serif",
   },
   img: {
     width: "90%",
@@ -80,12 +79,24 @@ const styles = {
   desc: {
     margin: "2%",
   },
-  btn: {
-    width: "30%",
-    bottom: 0,
-    marginRight: 15,
-    margin: "2%",
+  btns: { 
+    display: "flex",
+    justifyContent: "space-between",
     fontFamily: "'Roboto', sans-serif",
+  },
+  btnDetail: {
+    marginLeft: "1%",
+    border: "none",
+    backgroundColor: "white",
+    color: "purple",
+    fontSize: "125%",
+    fontWeight: "bold",
+    textDecoration: "underline",
+  },
+  btnSave: {
+    alignSelf: "flex-end",
+    width: "35%",
+    margin: "2%",
   },
 };
 

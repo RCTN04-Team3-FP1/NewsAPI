@@ -27,7 +27,7 @@ const newsSlice = createSlice({
     builder
       .addCase(fetchNews.fulfilled, (state, action) => {
         console.log("fullfiled");
-        return { ...state, news: action.payload, loading: false };
+        return { ...state, news: action.payload, loading: false, error: ""};
       })
       .addCase(fetchNews.rejected, (state, action) => {
         console.log("rejected");

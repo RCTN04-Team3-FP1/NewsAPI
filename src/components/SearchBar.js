@@ -21,9 +21,11 @@ const SearchBar = ({ onSearch }) => {
         variant="secondary"
         type="submit"
         onClick={() => {
-          onSearch(text);
-          navigate(`/search/${text}`);
-          setText("");
+          if (!!text) {
+            onSearch(text);
+            navigate(`/search/${text}`);
+            setText("");
+          }
         }}
       >
         Search
