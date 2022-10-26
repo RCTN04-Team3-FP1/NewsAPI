@@ -3,9 +3,9 @@ import { useNav } from "../hooks/Navbar.hook";
 import { getCategories } from "../utils/datas/getCategories";
 import SearchBar from "./SearchBar";
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
   const categories = getCategories();
-  const { str, handleStr } = useNav();
+  const { str } = useNav();
 
   return (
     <div style={styles.container}>
@@ -16,7 +16,6 @@ const Navbar = () => {
             style={styles.navItem}
             to={`${category.route}`}
             className="navItem"
-            onClick={handleStr}
           >
             {category.name}
           </Link>
@@ -24,7 +23,7 @@ const Navbar = () => {
       </nav>
       <div style={styles.news}>{str} News</div>
       <div style={styles.search}>
-        <SearchBar />
+        <SearchBar onSearch={onSearch}/>
       </div>
     </div>
   );
@@ -54,7 +53,7 @@ const styles = {
     flex: 1,
     fontSize: 35,
     fontWeight: "bold",
-    fontFamily: "'Domine', serif",
+    fontFamily: "'Poppins', sans-serif",
   },
   search: {
     flex: 1,

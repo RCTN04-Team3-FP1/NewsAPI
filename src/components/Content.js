@@ -1,16 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import Indonesia from "../pages/Indonesia";
-import Programming from "../pages/Programming.js";
-import Covid19 from "../pages/Covid-19.js";
-// import Saved from "../pages/Saved.js";
+import Saved from "../pages/Saved.js";
+import NewsList from "../pages/NewsList";
 
-const Content = () => {
+const Content = ({ search }) => {
   return (
     <Routes>
-      <Route path="/" element={<Indonesia />} />
-      <Route path="/programming" element={<Programming />} />
-      <Route path="/covid-19" element={<Covid19 />} />
-      {/* <Route path="/saved" element={<Saved />} /> */}
+      <Route path="/" element={<NewsList temp={"top-headlines?country=id"}/>} />
+      <Route path="/programming" element={<NewsList temp={"everything?q=programming"}/>} />
+      <Route path="/covid-19" element={<NewsList temp={"everything?q=covid19"}/>} />
+      <Route path="/saved" element={<Saved />} />
+      <Route path={`/search/${search}`} element={<NewsList temp={`everything?q=${search}`}/>} />
     </Routes>
   );
 };
