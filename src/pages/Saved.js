@@ -5,7 +5,7 @@ import { deleteNews } from "../features/savedNews/savedNewsSlice";
 import HandlePage from "./HandlePage";
 
 const Saved = () => {
-  const { saved } = useSelector((state) => state.saved);
+  const { saved } = useSelector((state) => state.persistedReducer.saved);
   const dispatch = useDispatch();
 
   if (saved.length === 0) {

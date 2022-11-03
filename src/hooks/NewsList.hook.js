@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../features/news/newsSlice";
 
 export const useNewsList = ({ temp }) => {
-  const { news, error, loading } = useSelector((state) => state.news);
+  const { news, error, loading } = useSelector((state) => state.persistedReducer.news);
   const dispatch = useDispatch();
 
   const doFetchNews = () => {
