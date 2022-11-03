@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveNews, deleteNews } from "../features/savedNews/savedNewsSlice";
 
 const NewsContainer = ({ data }) => {
-  const { saved } = useSelector((state) => state.saved);
+  const { saved } = useSelector((state) => state.persistedReducer.saved);
   const dispatch = useDispatch();
 
   const isSaved = saved.find((news) => news.url === data.url);
