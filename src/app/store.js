@@ -2,7 +2,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import newsReduce from "../features/news/newsSlice";
 import savedReduce from "../features/savedNews/savedNewsSlice";
 import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
+import { PERSIST, persistReducer } from "redux-persist";
 
 const persistConfig = {
   key: "root",
@@ -21,4 +21,10 @@ export const store = configureStore({
   reducer: {
     persistedReducer
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [PERSIST],
+      },
+    }),
 });
